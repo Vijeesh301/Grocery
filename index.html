@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery List</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- <input type='button' onclick='tableFromJson()' 
+    	value='Create Table from JSON data' /> -->
+        
+    <!-- <p id='showData'></p> -->
+
+    <div class="container">
+        <div class="heading bg-success">
+            <h2 class="pt-2 pb-3 text-center font-weight-bold text-white">Grocery Items</h2>
+        </div>
+        <br>
+        <div class="btn-lg d-grid col-2 mx-auto w-100" id="table">
+            <button onclick="tableFromJson()" class="btn btn-primary" value='Create Table from JSON data'>Grocery List</button>
+        </div>
+
+
+    <div id="showData">
+        <!-- <table class="table table-hover table-responsive-xl table-success table-striped">
+        <thead class="bg-info">
+            <tr><th scope="col">SlNo</th><th scope="col">ITEMS</th><th scope="col">QUANTITY</th><th scope="col">UNIT</th><th scope="col">CATEGORY</th><th scope="col">DISCRIPTION</th></tr> 
+            <th scope="col">SELECT</th>
+        </thead> -->
+    
+    <script>
+
+
+    function tableFromJson() {
+
+        var myList = [
+            {'SlNo': '1', 'ITEMS': 'Rice',
+                'QUANTITY': '10Kg', 'UNIT': '1', 'CATEGORY': 'Grains', 'DISCRIPTION': 'Matta rice',
+            },
+
+            {'SlNo': '2', 'ITEMS': 'Wheat Flour',
+                'QUANTITY': '1Kg', 'UNIT': '2', 'CATEGORY': 'Flour', 'DISCRIPTION': 'Atta',
+            },
+
+            {'SlNo': '3', 'ITEMS': 'Coconut Oil',
+                'QUANTITY': '1Kg', 'UNIT': '1', 'CATEGORY': 'Oil', 'DISCRIPTION': 'Coconut Oil',
+            },
+
+            {'SlNo': '4', 'ITEMS': 'Salt',
+                'QUANTITY': '1Kg', 'UNIT': '2', 'CATEGORY': 'Contiments', 'DISCRIPTION': 'Premium Salt',
+            },
+
+            {'SlNo': '5', 'ITEMS': 'Sugar',
+                'QUANTITY': '2Kg', 'UNIT': '1', 'CATEGORY': 'Contiments', 'DISCRIPTION': 'Premium Sugar',
+            },
+
+            {'SlNo': '6', 'ITEMS': 'Tea Powder',
+                'QUANTITY': '500g', 'UNIT': '2', 'CATEGORY': 'Beverages', 'DISCRIPTION': 'Tea',
+            },
+
+            {'SlNo': '7', 'ITEMS': 'Hand Wash Liquid',
+                'QUANTITY': '1', 'UNIT': '1', 'CATEGORY': 'Other', 'DISCRIPTION': 'Other',
+            },
+
+            {'SlNo': '8', 'ITEMS': 'Onion',
+                'QUANTITY': '1Kg', 'UNIT': '2', 'CATEGORY': 'Vegitables', 'DISCRIPTION': 'Fresh',
+            },
+
+            {'SlNo': '9', 'ITEMS': 'Tomato',
+                'QUANTITY': '1Kg', 'UNIT': '2', 'CATEGORY': 'Vegitables', 'DISCRIPTION': 'Fresh',
+            },
+
+            {'SlNo': '10', 'ITEMS': 'Potato',
+                'QUANTITY': '1Kg', 'UNIT': '2', 'CATEGORY': 'Vegitables', 'DISCRIPTION': 'Fresh',
+            },
+            
+        ]
+
+        var col = [];
+        for (var i = 0; i < myList.length; i++) {
+            for (var key in myList[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        var table = document.createElement("table");
+
+        var tr = table.insertRow(-1);                   
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        for (var i = 0; i < myList.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myList[i][col[j]];
+            }
+        }
+
+        var divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+        
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    background-image: url(/Images/bg_image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 600px;
+    background-attachment: fixed;
+}
+
+th, td, p, input, h3 {
+    font:15px 'Segoe UI';
+}
+
+table, th, td {
+    border: solid 1px rgb(1, 53, 42);
+    border-collapse: collapse;
+    padding: 25px 60px;
+    text-align: center;
+    background-color: rgb(145, 224, 238, .7);
+}
+th {
+    font-weight:bold;
+}
+
+
